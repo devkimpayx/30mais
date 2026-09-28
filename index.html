@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escolha seu Plano</title>
+    
+    <!-- Importando Tailwind CSS para estilização responsiva e moderna -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Importando fonte Inter do Google Fonts para um design limpo -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0b0510; 
+            color: #f8fafc;
+        }
+
+        /* --- Customização da Barra de Rolagem (Scrollbar) em Roxo Neon --- */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0b0510; /* Fundo escuro do track */
+            border-left: 1px solid rgba(176, 38, 255, 0.1);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #b026ff; /* Cor Roxo Neon */
+            border-radius: 8px;
+            border: 3px solid #0b0510; /* Dá um efeito de "padding" ao redor da barra */
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #d475ff; /* Fica um pouco mais claro no hover */
+        }
+        /* Suporte para Firefox */
+        * {
+            scrollbar-width: thin;
+            scrollbar-color: #b026ff #0b0510;
+        }
+
+        /* Classe customizada para o Botão Verde Neon */
+        .btn-neon {
+            background-color: #39ff14; /* Verde Brilhante */
+            color: #000000; /* Texto escuro para contraste */
+            box-shadow: 0 0 10px rgba(57, 255, 20, 0.4), 
+                        0 0 20px rgba(57, 255, 20, 0.2);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .btn-neon:hover {
+            background-color: #4dff2b;
+            box-shadow: 0 0 15px rgba(57, 255, 20, 0.7), 
+                        0 0 30px rgba(57, 255, 20, 0.5),
+                        0 0 45px rgba(57, 255, 20, 0.3);
+            transform: translateY(-3px);
+        }
+
+        .btn-neon:active {
+            transform: translateY(1px);
+            box-shadow: 0 0 10px rgba(57, 255, 20, 0.5);
+        }
+
+        /* Animação suave de entrada dos cards */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in {
+            animation: fadeInUp 0.6s ease-out forwards;
+            opacity: 0;
+        }
+        
+        .delay-100 { animation-delay: 100ms; }
+        .delay-200 { animation-delay: 200ms; }
+        .delay-300 { animation-delay: 300ms; }
+        
+        /* Efeito Roxo Neon para os Cards */
+        .card-neon-purple {
+            border-color: #3b0764; /* Roxo escuro base */
+        }
+        .card-neon-purple:hover {
+            border-color: #b026ff;
+            box-shadow: 0 0 20px rgba(176, 38, 255, 0.4);
+            background-color: rgba(40, 10, 60, 0.8);
+        }
+    </style>
+</head>
+<body class="min-h-[120vh] flex flex-col items-center py-20 px-4 sm:px-6 lg:px-8 selection:bg-[#b026ff] selection:text-white relative overflow-x-hidden">
+    
+    <!-- Gradiente de fundo sutil em Roxo Neon -->
+    <div class="fixed inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-purple-900/20 via-[#0b0510] to-[#0b0510] -z-10"></div>
+
+    <header class="text-center mb-16 animate-fade-in w-full">
+        <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-4 text-white">
+            Escolha o melhor plano para você
+        </h1>
+        <p class="text-purple-300/70 text-lg md:text-xl max-w-2xl mx-auto">
+            Acesso completo e sem complicações.
+        </p>
+    </header>
+
+    <main class="w-full max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 pb-10">
+        
+        <!-- Plano Mensal (Atualizado para R$ 30,00) -->
+        <div class="bg-slate-900/60 rounded-2xl p-8 flex flex-col items-center text-center shadow-lg transition-all duration-300 animate-fade-in group border card-neon-purple h-full">
+            <h2 class="text-purple-400 font-semibold uppercase tracking-widest text-sm mb-2 group-hover:text-purple-300 transition-colors">Mensal</h2>
+            <div class="flex items-baseline justify-center gap-1 mb-8">
+                <span class="text-2xl font-medium text-slate-300">R$</span>
+                <span class="text-5xl font-black text-white">30,00</span>
+            </div>
+            
+            <div class="flex-grow"></div> 
+            
+            <a href="https://cutt.ly/Pg30" target="_blank" rel="noopener noreferrer" 
+               class="btn-neon w-full py-4 px-6 rounded-xl font-bold text-lg uppercase tracking-wide flex items-center justify-center gap-2 mt-4">
+                Pagar Agora
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                </svg>
+            </a>
+        </div>
+
+        <!-- Plano Trimestral -->
+        <div class="bg-slate-900/60 rounded-2xl p-8 flex flex-col items-center text-center shadow-lg transition-all duration-300 animate-fade-in delay-100 group border card-neon-purple h-full">
+            <h2 class="text-purple-400 font-semibold uppercase tracking-widest text-sm mb-2 group-hover:text-purple-300 transition-colors">Trimestral</h2>
+            <div class="flex items-baseline justify-center gap-1 mb-8">
+                <span class="text-2xl font-medium text-slate-300">R$</span>
+                <span class="text-5xl font-black text-white">70,00</span>
+            </div>
+            
+            <div class="flex-grow"></div>
+            
+            <a href="https://cutt.ly/dePIX" target="_blank" rel="noopener noreferrer" 
+               class="btn-neon w-full py-4 px-6 rounded-xl font-bold text-lg uppercase tracking-wide flex items-center justify-center gap-2 mt-4">
+                Pagar Agora
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                </svg>
+            </a>
+        </div>
+
+        <!-- Plano Semestral -->
+        <div class="bg-slate-900/60 rounded-2xl p-8 flex flex-col items-center text-center shadow-lg transition-all duration-300 animate-fade-in delay-200 group relative overflow-hidden border card-neon-purple h-full">
+            <div class="absolute top-0 right-0 bg-purple-600 text-xs text-white font-bold px-3 py-1 rounded-bl-lg">Popular</div>
+            
+            <h2 class="text-purple-400 font-semibold uppercase tracking-widest text-sm mb-2 group-hover:text-purple-300 transition-colors">Semestral</h2>
+            <div class="flex items-baseline justify-center gap-1 mb-8">
+                <span class="text-2xl font-medium text-slate-300">R$</span>
+                <span class="text-5xl font-black text-white">120,00</span>
+            </div>
+            
+            <div class="flex-grow"></div>
+            
+            <a href="https://cutt.ly/dePIX" target="_blank" rel="noopener noreferrer" 
+               class="btn-neon w-full py-4 px-6 rounded-xl font-bold text-lg uppercase tracking-wide flex items-center justify-center gap-2 mt-4">
+                Pagar Agora
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                </svg>
+            </a>
+        </div>
+
+        <!-- Plano Anual -->
+        <div class="bg-slate-900/60 rounded-2xl p-8 flex flex-col items-center text-center shadow-lg transition-all duration-300 animate-fade-in delay-300 group border card-neon-purple !border-[#b026ff] shadow-[0_0_15px_rgba(176,38,255,0.2)] h-full">
+            <h2 class="text-[#b026ff] font-bold uppercase tracking-widest text-sm mb-2 transition-colors">Anual</h2>
+            <div class="flex items-baseline justify-center gap-1 mb-8">
+                <span class="text-2xl font-medium text-slate-300">R$</span>
+                <span class="text-5xl font-black text-white">225,00</span>
+            </div>
+            
+            <div class="flex-grow"></div>
+            
+            <a href="https://cutt.ly/dePIX" target="_blank" rel="noopener noreferrer" 
+               class="btn-neon w-full py-4 px-6 rounded-xl font-bold text-lg uppercase tracking-wide flex items-center justify-center gap-2 mt-4">
+                Pagar Agora
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                </svg>
+            </a>
+        </div>
+    </main>
+
+    <footer class="mt-8 mb-20 animate-fade-in delay-300 w-full flex justify-center">
+        <div class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-purple-900/30 border border-purple-800/50 text-purple-200 text-sm md:text-base font-medium shadow-sm backdrop-blur-sm">
+            <span class="text-xl">🛡️</span>
+            <span>Pagamento seguro e instantâneo via <strong class="text-white">PIX</strong></span>
+        </div>
+    </footer>
+
+    <!-- Indicador de "Rolar para baixo" animado -->
+    <div id="scroll-indicator" class="fixed bottom-6 left-1/2 transform -translate-x-1/2 flex flex-col items-center justify-center text-purple-400 transition-opacity duration-500 ease-in-out pointer-events-none z-50 animate-bounce">
+        <span class="text-[10px] md:text-xs font-bold tracking-widest uppercase mb-1 drop-shadow-md">Rolar para baixo</span>
+        <div class="bg-purple-900/60 p-2 rounded-full border border-purple-500/30">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#b026ff]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            </svg>
+        </div>
+    </div>
+
+    <script>
+        // Função para esconder o indicador de "Rolar para baixo" quando o usuário descer a página
+        window.addEventListener('scroll', function() {
+            const scrollIndicator = document.getElementById('scroll-indicator');
+            // Se o usuário rolou mais de 50 pixels, esconde o indicador
+            if (window.scrollY > 50) {
+                scrollIndicator.style.opacity = '0';
+            } else {
+                scrollIndicator.style.opacity = '1';
+            }
+        });
+    </script>
+</body>
+</html>
